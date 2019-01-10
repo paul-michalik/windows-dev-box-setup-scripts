@@ -1,5 +1,6 @@
+
 # Description: Boxstarter Script
-# Author: Microsoft
+# Author: Paul Michalik
 # Common dev settings for desktop app development
 
 Disable-UAC
@@ -22,10 +23,14 @@ function executeScript {
 }
 
 #--- Setting up Windows ---
-executeScript "FileExplorerSettings.ps1";
+executeScript "paul/FileExplorerSettings.ps1";
 executeScript "RemoveDefaultApps.ps1";
-
 #--- Tools ---
+choco install -y visualstudio2017buildtools --package-parameters="'--locale en-US --includeRecommended --includeOptional --lang en-US--add Microsoft.VisualStudio.Workload.MSBuildTools --add Microsoft.VisualStudio.Workload.VCTools'"
+choco install -y git.install --package-parameters="'/NoShellIntegration /GitOnlyOnPath /WindowsTerminal /SChannel'"
+choco install -y cmake.install --install-arguments="'ADD_CMAKE_TO_PATH=System'"
+Update-SessionEnvironment #refreshing env due to Git install
+
 #--- Installing VS and VS Code with Git
 # See this for install args: https://chocolatey.org/packages/VisualStudio2017Community
 # https://docs.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-community
@@ -33,18 +38,6 @@ executeScript "RemoveDefaultApps.ps1";
 # visualstudio2017community
 # visualstudio2017professional
 # visualstudio2017enterprise
-
-# choco install -y visualstudio2017community --package-parameters="'--add Microsoft.VisualStudio.Component.Git'"
-Update-SessionEnvironment #refreshing env due to Git install
-
-#--- UWP Workload and installing Windows Template Studio ---
-#choco install -y visualstudio2017-workload-azure
-#choco install -y visualstudio2017-workload-universal
-#choco install -y visualstudio2017-workload-manageddesktop
-#choco install -y visualstudio2017-workload-nativedesktop
-
-#executeScript "WindowsTemplateStudio.ps1";
-#executeScript "GetUwpSamplesOffGithub.ps1";
 
 #--- reenabling critial items ---
 Enable-UAC
