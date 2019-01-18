@@ -33,7 +33,7 @@ To run a recipe script, click a link in the table below from your target machine
 
 |Click link to run  |Description  |
 |---------|---------|
-|<a href='http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/paul-michalik/windows-dev-box-setup-scripts/feature/add-prefered-devbox-settings/dev_paul_base.ps1'> Paul's basic Windows development box</a> | **Windows Explorer Settings, Enable Windows Optional Features, Chocolatey GUI** Requires manual reboot! |
+|<a href='http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/paul-michalik/windows-dev-box-setup-scripts/master/dev_paul_base.ps1'> Paul's basic Windows development box</a> | **Windows Explorer Settings, Enable Windows Optional Features, Chocolatey GUI** Requires manual reboot! |
 |     | Submit a PR with a recommended configuration!        |
 
 **Notes:**  
